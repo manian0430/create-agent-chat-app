@@ -1,0 +1,27 @@
+{
+  "name": "create-langgraph-chat-app",
+  "version": "0.1.0",
+  "description": "Create a LangGraph chat app with one command",
+  "main": "index.js",
+  "type": "module",
+  "bin": {
+    "create-langgraph-chat-app": "index.js"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "fs-extra": "^11.2.0",
+    "prompts": "^2.4.2"
+  },
+  "keywords": [
+    "langgraph",
+    "starter",
+    "template",
+    "create-app",
+    "vite"
+  ],
+  "author": "Your Name",
+  "license": "MIT"
+}

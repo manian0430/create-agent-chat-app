@@ -1,6 +1,6 @@
 {
   "name": "create-langgraph-chat-app",
-  "version": "0.1.0",
+  "version": "0.0.1-rc.0",
   "description": "Create a LangGraph chat app with one command",
   "main": "index.js",
   "type": "module",
@@ -22,6 +22,6 @@
     "create-app",
     "vite"
   ],
-  "author": "Your Name",
+  "author": "Brace Sproul",
   "license": "MIT"
 }

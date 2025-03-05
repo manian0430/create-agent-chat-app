@@ -20,7 +20,10 @@
     "starter",
     "template",
     "create-app",
-    "vite"
+    "vite",
+    "react",
+    "langchain",
+    "openai"
   ],
   "author": "Brace Sproul",
   "license": "MIT"

@@ -5,9 +5,9 @@
 /**
  * The create-langgraph-chat-app CLI
  * This package provides a command-line interface for creating a new LangGraph chat application
- * 
+ *
  * @packageDocumentation
  */
 
 // Re-export CLI functionality
-export * from './create-langgraph-chat-app/index.js';
+export * from "./create-langgraph-chat-app/index.js";

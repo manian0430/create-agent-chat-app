@@ -5,8 +5,8 @@ A CLI tool to quickly set up a LangGraph chat application with Vite.
 ## Usage
 
 ```bash
-# Using npx (recommended)
-npx create-langgraph-chat-app
+# Using npx
+npx create-chat-langgraph-app
 ```
 
 ## Features

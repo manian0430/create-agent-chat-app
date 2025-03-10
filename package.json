@@ -1,5 +1,5 @@
 {
-  "name": "create-langgraph-chat-app-dev",
+  "name": "create-chat-langgraph-app-dev",
   "version": "0.1.0",
   "description": "CLI tool to create a LangGraph chat application with one command",
   "packageManager": "yarn@1.22.22",

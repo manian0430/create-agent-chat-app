@@ -10,4 +10,4 @@
  */
 
 // Re-export CLI functionality
-export * from "./create-langgraph-chat-app/index.js";
+export * from "./create-chat-langgraph-app/index.js";

@@ -1,6 +1,6 @@
 {
   "name": "create-chat-langgraph-app",
-  "version": "0.0.1-rc.4",
+  "version": "0.0.1",
   "description": "Create a LangGraph chat app with one command",
   "main": "index.js",
   "type": "module",

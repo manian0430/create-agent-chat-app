@@ -1,4 +1,4 @@
-# create-langgraph-chat-app
+# create-agent-chat-app
 
 A CLI tool to bootstrap a LangGraph chat application quickly.
 
@@ -10,11 +10,11 @@ This package provides a CLI tool to create a LangGraph chat application with min
 
 ```bash
 # Using npx (recommended)
-npx create-langgraph-chat-app
+npx create-agent-chat-app
 
 # Or install globally
-npm install -g create-langgraph-chat-app
-create-langgraph-chat-app
+npm install -g create-agent-chat-app
+create-agent-chat-app
 ```
 
 The CLI will prompt you for:
@@ -29,8 +29,8 @@ The CLI will prompt you for:
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/create-langgraph-chat-app.git
-cd create-langgraph-chat-app
+git clone https://github.com/yourusername/create-agent-chat-app.git
+cd create-agent-chat-app
 
 # Install dependencies
 yarn install
@@ -48,7 +48,7 @@ You can test the CLI locally by linking the package:
 npm link
 
 # Then run
-create-langgraph-chat-app
+create-agent-chat-app
 ```
 
 ### Publishing

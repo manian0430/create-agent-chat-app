@@ -12,8 +12,8 @@ const __dirname = path.dirname(__filename);
 
 async function init() {
   console.log(`
-  ${chalk.green("Welcome to create-chat-langgraph-app!")}
-  Let's set up your new LangGraph chat application.
+  ${chalk.green("Welcome to create-agent-chat-app!")}
+  Let's set up your new agent chat application.
   `);
 
   // Collect user input
@@ -22,7 +22,7 @@ async function init() {
       type: "text",
       name: "projectName",
       message: "What is the name of your project?",
-      initial: "langgraph-chat-app",
+      initial: "agent-chat-app",
     },
   ]);
   const { projectName } = questions;
@@ -55,7 +55,7 @@ async function init() {
 
   console.log(chalk.green("\nSuccess!"));
   console.log(`
-  Your LangGraph chat app has been created at ${chalk.green(targetDir)}
+  Your agent chat app has been created at ${chalk.green(targetDir)}
   
   To get started:
     ${chalk.cyan(`cd ${projectName}`)}

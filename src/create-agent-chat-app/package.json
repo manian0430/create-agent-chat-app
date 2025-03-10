@@ -1,11 +1,11 @@
 {
-  "name": "create-chat-langgraph-app",
+  "name": "create-agent-chat-app",
   "version": "0.0.2",
   "description": "Create a LangGraph chat app with one command",
   "main": "index.js",
   "type": "module",
   "bin": {
-    "create-langgraph-chat-app": "index.js"
+    "create-agent-chat-app": "index.js"
   },
   "engines": {
     "node": ">=16.0.0"

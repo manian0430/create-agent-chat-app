@@ -15,8 +15,8 @@
     "test:int": "node --experimental-vm-modules node_modules/jest/bin/jest.js --testPathPattern=\\.int\\.test\\.ts$",
     "test:single": "NODE_OPTIONS=--experimental-vm-modules yarn run jest --config jest.config.js --testTimeout 100000",
     "format": "prettier --write . --ignore-path .prettierignore",
-    "lint": "eslint 'src/**/*.{ts,tsx}' --ignore-pattern 'src/create-langgraph-chat-app/template/**'",
-    "lint:fix": "eslint 'src/**/*.{ts,tsx}' --fix --ignore-pattern 'src/create-langgraph-chat-app/template/**'",
+    "lint": "eslint 'src/**/*.{ts,tsx}' --ignore-pattern 'src/create-agent-chat-app/template/**'",
+    "lint:fix": "eslint 'src/**/*.{ts,tsx}' --fix --ignore-pattern 'src/create-agent-chat-app/template/**'",
     "format:check": "prettier --check . --ignore-path .prettierignore"
   },
   "dependencies": {

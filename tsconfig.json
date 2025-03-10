@@ -35,6 +35,6 @@
   "exclude": [
     "node_modules",
     "dist",
-    "src/create-chat-langgraph-app/template"
+    "src/create-agent-chat-app/template"
   ]
 }

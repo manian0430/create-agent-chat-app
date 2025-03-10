@@ -2,4 +2,4 @@ node_modules
 dist
 .env
 coverage
-src/create-langgraph-chat-app/template/**
+src/create-agent-chat-app/template/**

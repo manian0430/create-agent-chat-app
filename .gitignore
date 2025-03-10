@@ -1,6 +1,3 @@
-index.cjs
-index.js
-index.d.ts
 node_modules
 dist
 .yarn/*
@@ -20,7 +17,6 @@ yarn-error.log
 .env.quickstart
 .ipynb_checkpoints
 
-!src/create-langgraph-chat-app/index.js
 
 # LangGraph API
 .langgraph_api

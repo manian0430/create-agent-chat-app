@@ -2,11 +2,7 @@
   "extends": "@tsconfig/recommended",
   "compilerOptions": {
     "target": "ES2021",
-    "lib": [
-      "ES2021",
-      "ES2022.Object",
-      "DOM"
-    ],
+    "lib": ["ES2021", "ES2022.Object", "DOM"],
     "module": "NodeNext",
     "moduleResolution": "nodenext",
     "esModuleInterop": true,
@@ -21,20 +17,9 @@
     "strict": true,
     "strictFunctionTypes": false,
     "outDir": "dist",
-    "types": [
-      "jest",
-      "node"
-    ],
+    "types": ["jest", "node"],
     "resolveJsonModule": true
   },
-  "include": [
-    "**/*.ts",
-    "**/*.js",
-    "jest.setup.cjs"
-  ],
-  "exclude": [
-    "node_modules",
-    "dist",
-    "src/create-agent-chat-app/template"
-  ]
+  "include": ["**/*.ts", "**/*.js", "jest.setup.cjs"],
+  "exclude": ["node_modules", "dist", "src/create-agent-chat-app/template"]
 }

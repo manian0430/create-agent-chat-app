@@ -35,6 +35,7 @@ pnpm dev
 ```
 
 Once the server is running, you can visit `http://localhost:5173` in your browser. From there, you'll be prompted to enter:
+
 - **Deployment URL**: The API URL of your LangGraph server. This can be a local URL, or a deployed LangGraph server. You must have a LangGraph server running to connect to.
 - **Assistant/Graph ID**: The name of the graph, or ID of the assistant to use when fetching, and submitting runs via the chat interface.
 - **LangSmith API Key**: (only required for connecting to deployed LangGraph servers) Your LangSmith API key to use when authenticating requests sent to LangGraph servers.

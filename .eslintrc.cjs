@@ -20,6 +20,7 @@ module.exports = {
     "*.js",
     "*.cjs",
     "*.d.ts",
+    "src/templates/**",
   ],
   rules: {
     "@typescript-eslint/explicit-module-boundary-types": 0,

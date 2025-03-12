@@ -1,0 +1,30 @@
+{
+  "name": "agent-app",
+  "author": "Your Name",
+  "private": true,
+  "workspaces": ["apps/*"],
+  "scripts": {
+    "build": "turbo build",
+    "turbo:command": "turbo",
+    "format": "turbo format",
+    "lint": "turbo lint",
+    "lint:fix": "turbo lint:fix"
+  },
+  "devDependencies": {
+    "turbo": "latest",
+    "tsx": "^4.19.1",
+    "typescript": "^5",
+    "eslint": "^8.41.0",
+    "@typescript-eslint/eslint-plugin": "^5.59.8",
+    "@eslint/eslintrc": "^3.1.0",
+    "@typescript-eslint/parser": "^5.59.8",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-no-instanceof": "^1.0.1",
+    "eslint-plugin-prettier": "^4.2.1",
+    "prettier": "^3.3.3"
+  },
+  "resolutions": {
+    "@langchain/core": "^0.3.41"
+  }
+}

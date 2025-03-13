@@ -28,6 +28,8 @@ import { toast } from "sonner";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { Label } from "../ui/label";
 import { Switch } from "../ui/switch";
+import { MultiAgentChat } from "../MultiAgentChat";
+import { ExportChat } from "../ExportChat";
 
 function StickyToBottomContent(props: {
   content: ReactNode;
@@ -283,6 +285,21 @@ export function Thread() {
             <div className="absolute inset-x-0 top-full h-5 bg-gradient-to-b from-background to-background/0" />
           </div>
         )}
+
+        <div className="flex justify-between items-center p-4 border-b">
+          <div className="flex items-center gap-4">
+            <ExportChat messages={messages} />
+            <MultiAgentChat 
+              messages={messages}
+              onAgentInteraction={(agentId, message) => {
+                stream.submit(
+                  { messages: [...messages, { id: agentId, type: "human", content: message }] },
+                  { streamMode: ["values"] }
+                );
+              }}
+            />
+          </div>
+        </div>
 
         <StickToBottom className="relative flex-1 overflow-hidden">
           <StickyToBottomContent

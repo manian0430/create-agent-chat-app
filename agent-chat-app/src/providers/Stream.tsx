@@ -24,6 +24,7 @@ import { useThreads } from "./Thread";
 import { toast } from "sonner";
 import { ApiKeyManager } from "@/components/ApiKeyManager";
 import { ExportChat } from "@/components/ExportChat";
+import { MultiAgentChat } from "@/components/MultiAgentChat";
 
 export type StateType = { messages: Message[]; ui?: UIMessage[] };
 
@@ -91,11 +92,35 @@ const StreamSession = ({
     },
     onThreadId: (id) => {
       setThreadId(id);
-      // Refetch threads list when thread ID changes.
-      // Wait for some seconds before fetching so we're able to get the new thread that was created.
       sleep().then(() => getThreads().then(setThreads).catch(console.error));
     },
   });
+
+  const handleAgentInteraction = async (agentId: string, message: string) => {
+    try {
+      const newMessage: Message = {
+        id: agentId,
+        type: "human",
+        content: message,
+      };
+
+      await streamValue.submit(
+        { messages: [...streamValue.messages, newMessage] },
+        {
+          streamMode: ["values"],
+          optimisticValues: (prev) => ({
+            ...prev,
+            messages: [...(prev.messages ?? []), newMessage],
+          }),
+        }
+      );
+
+      toast.success(`${agentId} has processed the message`);
+    } catch (error) {
+      toast.error(`Failed to process message with ${agentId}`);
+      console.error('Agent interaction error:', error);
+    }
+  };
 
   useEffect(() => {
     checkGraphStatus(apiUrl, apiKey).then((ok) => {
@@ -117,7 +142,13 @@ const StreamSession = ({
 
   return (
     <StreamContext.Provider value={streamValue}>
-      {children}
+      <div className="flex flex-col gap-4">
+        <MultiAgentChat 
+          messages={streamValue.messages} 
+          onAgentInteraction={handleAgentInteraction}
+        />
+        {children}
+      </div>
     </StreamContext.Provider>
   );
 };
@@ -129,7 +160,6 @@ export const StreamProvider: React.FC<{ children: ReactNode }> = ({
   const [apiKey, _setApiKey] = useState(() => {
     return getApiKey();
   });
-  const stream = useStreamContext();
 
   const setApiKey = (key: string) => {
     _setApiKey(key);
@@ -152,7 +182,6 @@ export const StreamProvider: React.FC<{ children: ReactNode }> = ({
                   Agent Chat
                 </h1>
               </div>
-              {stream?.messages?.length > 0 && <ExportChat messages={stream.messages} />}
             </div>
             <p className="text-muted-foreground">
               Welcome to Agent Chat! Before you get started, you need to enter

@@ -41,6 +41,15 @@ After entering these values, click `Continue`. You'll then be redirected to a ch
 
 ## Features
 
+### Multi-Agent System
+- Collaborative AI agents with different roles (Researcher, Analyzer, Summarizer)
+- Dynamic agent management with ability to add custom agents
+- Role-based context-aware responses
+- Active/Inactive agent toggling
+- Real-time agent interactions with the chat
+- Customizable agent roles and responsibilities
+- Easy integration with existing chat flow
+
 ### Chat Export Functionality
 - Export your entire chat history with one click
 - Support for both JSON and plain text formats

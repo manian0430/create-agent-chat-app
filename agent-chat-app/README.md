@@ -38,3 +38,21 @@ Once the app is running (or if using the deployed site), you'll be prompted to e
 - **LangSmith API Key**: (only required for connecting to deployed LangGraph servers) Your LangSmith API key to use when authenticating requests sent to LangGraph servers.
 
 After entering these values, click `Continue`. You'll then be redirected to a chat interface where you can start chatting with your LangGraph server.
+
+## Features
+
+### Enhanced API Key Management
+- Secure storage of LangSmith API keys in browser's local storage
+- Real-time validation of API key format
+- Visual feedback for valid/invalid keys
+- Easy key management with save/clear functionality
+
+### Getting Started with API Keys
+1. When you first launch the application, you'll be prompted to enter your API key
+2. The key should start with `lsv2_pt_`
+3. Valid keys will show a green indicator
+4. Invalid keys will show a red indicator and cannot be saved
+5. You can clear your stored key at any time
+
+> [!NOTE]
+> The LangSmith API key is only required when connecting to deployed LangGraph servers. For local development, you can skip this step.

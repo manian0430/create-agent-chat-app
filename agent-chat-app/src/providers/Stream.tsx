@@ -22,6 +22,7 @@ import { PasswordInput } from "@/components/ui/password-input";
 import { getApiKey } from "@/lib/api-key";
 import { useThreads } from "./Thread";
 import { toast } from "sonner";
+import { ApiKeyManager } from "@/components/ApiKeyManager";
 
 export type StateType = { messages: Message[]; ui?: UIMessage[] };
 
@@ -129,7 +130,6 @@ export const StreamProvider: React.FC<{ children: ReactNode }> = ({
   });
 
   const setApiKey = (key: string) => {
-    window.localStorage.setItem("lg:chat:apiKey", key);
     _setApiKey(key);
   };
 
@@ -154,75 +154,49 @@ export const StreamProvider: React.FC<{ children: ReactNode }> = ({
               the URL of the deployment and the assistant / graph ID.
             </p>
           </div>
+
           <form
+            className="p-6 flex flex-col gap-6"
             onSubmit={(e) => {
               e.preventDefault();
+              const formData = new FormData(e.currentTarget);
+              const url = formData.get("apiUrl")?.toString();
+              const id = formData.get("assistantId")?.toString();
+              const key = formData.get("apiKey")?.toString();
 
-              const form = e.target as HTMLFormElement;
-              const formData = new FormData(form);
-              const apiUrl = formData.get("apiUrl") as string;
-              const assistantId = formData.get("assistantId") as string;
-              const apiKey = formData.get("apiKey") as string;
+              if (!url || !id) return;
 
-              setApiUrl(apiUrl);
-              setApiKey(apiKey);
-              setAssistantId(assistantId);
-
-              form.reset();
+              setApiUrl(url);
+              setAssistantId(id);
+              if (key) setApiKey(key);
             }}
-            className="flex flex-col gap-6 p-6 bg-muted/50"
           >
             <div className="flex flex-col gap-2">
-              <Label htmlFor="apiUrl">
-                Deployment URL<span className="text-rose-500">*</span>
-              </Label>
-              <p className="text-muted-foreground text-sm">
-                This is the URL of your LangGraph deployment. Can be a local, or
-                production deployment.
-              </p>
+              <Label htmlFor="apiUrl">Deployment URL</Label>
               <Input
                 id="apiUrl"
                 name="apiUrl"
+                defaultValue={apiUrl ?? ""}
                 className="bg-background"
-                defaultValue={apiUrl ?? "http://localhost:2024"}
-                required
+                placeholder="http://localhost:8000"
               />
             </div>
 
             <div className="flex flex-col gap-2">
-              <Label htmlFor="assistantId">
-                Assistant / Graph ID<span className="text-rose-500">*</span>
-              </Label>
-              <p className="text-muted-foreground text-sm">
-                This is the ID of the graph (can be the graph name), or
-                assistant to fetch threads from, and invoke when actions are
-                taken.
-              </p>
+              <Label htmlFor="assistantId">Assistant / Graph ID</Label>
               <Input
                 id="assistantId"
                 name="assistantId"
+                defaultValue={assistantId ?? ""}
                 className="bg-background"
-                defaultValue={assistantId ?? "agent"}
-                required
+                placeholder="assistant_12345"
               />
             </div>
 
-            <div className="flex flex-col gap-2">
-              <Label htmlFor="apiKey">LangSmith API Key</Label>
-              <p className="text-muted-foreground text-sm">
-                This is <strong>NOT</strong> required if using a local LangGraph
-                server. This value is stored in your browser's local storage and
-                is only used to authenticate requests sent to your LangGraph
-                server.
-              </p>
-              <PasswordInput
-                id="apiKey"
-                name="apiKey"
-                defaultValue={apiKey ?? ""}
-                className="bg-background"
-                placeholder="lsv2_pt_..."
-              />
-            </div>
+            <ApiKeyManager 
+              onApiKeyChange={setApiKey}
+              initialKey={apiKey ?? ""}
+            />
 
             <div className="flex justify-end mt-2">
               <Button type="submit" size="lg">

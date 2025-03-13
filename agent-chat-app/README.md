@@ -41,6 +41,14 @@ After entering these values, click `Continue`. You'll then be redirected to a ch
 
 ## Features
 
+### Chat Export Functionality
+- Export your entire chat history with one click
+- Support for both JSON and plain text formats
+- Automatic timestamping of exports
+- JSON format includes detailed message metadata
+- Text format provides clean, readable conversation logs
+- Downloads are named with timestamps for easy organization
+
 ### Enhanced API Key Management
 - Secure storage of LangSmith API keys in browser's local storage
 - Real-time validation of API key format

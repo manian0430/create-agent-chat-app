@@ -23,6 +23,7 @@ import { getApiKey } from "@/lib/api-key";
 import { useThreads } from "./Thread";
 import { toast } from "sonner";
 import { ApiKeyManager } from "@/components/ApiKeyManager";
+import { ExportChat } from "@/components/ExportChat";
 
 export type StateType = { messages: Message[]; ui?: UIMessage[] };
 
@@ -128,6 +129,7 @@ export const StreamProvider: React.FC<{ children: ReactNode }> = ({
   const [apiKey, _setApiKey] = useState(() => {
     return getApiKey();
   });
+  const stream = useStreamContext();
 
   const setApiKey = (key: string) => {
     _setApiKey(key);
@@ -143,11 +145,14 @@ export const StreamProvider: React.FC<{ children: ReactNode }> = ({
       <div className="flex items-center justify-center min-h-screen w-full p-4">
         <div className="animate-in fade-in-0 zoom-in-95 flex flex-col border bg-background shadow-lg rounded-lg max-w-3xl">
           <div className="flex flex-col gap-2 mt-14 p-6 border-b">
-            <div className="flex items-start flex-col gap-2">
-              <LangGraphLogoSVG className="h-7" />
-              <h1 className="text-xl font-semibold tracking-tight">
-                Agent Chat
-              </h1>
+            <div className="flex items-start justify-between w-full">
+              <div className="flex items-start flex-col gap-2">
+                <LangGraphLogoSVG className="h-7" />
+                <h1 className="text-xl font-semibold tracking-tight">
+                  Agent Chat
+                </h1>
+              </div>
+              {stream?.messages?.length > 0 && <ExportChat messages={stream.messages} />}
             </div>
             <p className="text-muted-foreground">
               Welcome to Agent Chat! Before you get started, you need to enter
